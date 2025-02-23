@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost and Profit Calculation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Cost and Profit Calculation</h1>
+    <form id="costProfitForm">
+        <label for="costPrice">Cost Price (ต้นทุน):</label>
+        <input type="number" id="costPrice" required><br>
+
+        <label for="sellingPrice">Selling Price (ราคาขาย):</label>
+        <input type="number" id="sellingPrice" required><br>
+
+        <label for="marketingCost">Marketing Cost (ค่าการตลาด):</label>
+        <input type="number" id="marketingCost" required><br>
+
+        <label for="otherCosts">Other Costs (ค่าใช้จ่ายอื่นๆ):</label>
+        <input type="number" id="otherCosts" required><br>
+
+        <label for="productName">Product Name (ชื่อสินค้า):</label>
+        <input type="text" id="productName" required><br>
+
+        <button type="submit">Calculate Profit</button>
+    </form>
+
+    <h2>Profit Calculation Results</h2>
+    <div id="profitResult"></div>
+
+    <h2>Saved Products</h2>
+    <div id="savedData"></div>
+
+    <script src="cost_calculation.js"></script>
+</body>
+</html>

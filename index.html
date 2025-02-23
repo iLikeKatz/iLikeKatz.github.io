@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Login</h2>
+    <label for="fixedPass">Enter Passcode:</label>
+    <input type="password" id="fixedPass" required>
+    <button onclick="checkFixedPass()">Submit</button>
+
+    <div id="dynamicPassSection" style="display: none;">
+        <p id="dynamicPassAlert"></p>
+        <label for="dynamicPass">Enter Code:</label>
+        <input type="password" id="dynamicPass" required>
+        <button onclick="checkDynamicPass()">Login</button>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>

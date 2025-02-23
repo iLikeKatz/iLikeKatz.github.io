@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Members</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Team Members</h1>
+    <form id="teamForm">
+        <label for="memberName">Member Name:</label>
+        <input type="text" id="memberName" required><br>
+
+        <label for="position">Position:</label>
+        <input type="text" id="position" required><br>
+
+        <label for="salary">Salary:</label>
+        <input type="number" id="salary" required><br>
+
+        <label for="shares">Shares Owned:</label>
+        <input type="number" id="shares" required><br>
+
+        <input type="hidden" id="editIndex"> <!-- ซ่อน index ของสมาชิกที่กำลังแก้ไข -->
+        <button type="submit">Add Member</button>
+    </form>
+
+    <h2>Saved Team Members</h2>
+    <div id="savedTeamData"></div>
+
+    <script src="team.js"></script>
+</body>
+</html>

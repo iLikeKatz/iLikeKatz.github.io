@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Information</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Business Information</h1>
+        <form id="businessForm">
+            <label for="businessType">Business Type:</label>
+            <input type="text" id="businessType" required><br>
+
+            <label for="customers">Target Customers:</label>
+            <input type="text" id="customers" required><br>
+
+            <label for="strengths">Business Strengths:</label>
+            <input type="text" id="strengths" required><br>
+
+            <label for="weaknesses">Business Weaknesses:</label>
+            <input type="text" id="weaknesses" required><br>
+
+            <label for="opportunities">Business Opportunities:</label>
+            <input type="text" id="opportunities" required><br>
+
+            <label for="threats">Business Threats:</label>
+            <input type="text" id="threats" required><br>
+
+            <label for="financialGoals">Financial Goals:</label>
+            <input type="text" id="financialGoals" required><br>
+
+            <button type="submit">Save</button>
+        </form>
+
+        <h2>Saved Business Info</h2>
+        <div id="savedData" class="info-box"></div>
+
+        <h2>Team Members</h2>
+        <button onclick="window.location.href='team.html'">Manage Team</button>
+
+        <h2>Cost and Profit Calculation</h2>
+        <button onclick="window.location.href='cost_calculation.html'">Go to Cost and Profit</button>
+
+        <h2>Business Dashboard</h2>
+        <button onclick="window.location.href='https://docs.google.com/spreadsheets/d/1qzGOkzUq8K-w25UVaVBqZpnynxeRWQmjBEkR6xCM8G0/edit?gid=0#gid=0'">View Dashboard</button>
+
+        <h2>Project management</h2>
+        <button onclick="window.location.href='https://app.clickup.com/9018913990/home'">View Dashboard</button>
+
+    </div>
+
+    <script>
+        document.getElementById('businessForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get form input values
+            const businessType = document.getElementById('businessType').value;
+            const customers = document.getElementById('customers').value;
+            const strengths = document.getElementById('strengths').value;
+            const weaknesses = document.getElementById('weaknesses').value;
+            const opportunities = document.getElementById('opportunities').value;
+            const threats = document.getElementById('threats').value;
+            const financialGoals = document.getElementById('financialGoals').value;
+
+            // Create an object to store the business information
+            const businessInfo = {
+                businessType,
+                customers,
+                strengths,
+                weaknesses,
+                opportunities,
+                threats,
+                financialGoals
+            };
+
+            // Save to localStorage
+            localStorage.setItem('businessInfo', JSON.stringify(businessInfo));
+
+            // Display saved data
+            displaySavedData(businessInfo);
+        });
+
+        // Function to display saved data in the 'Saved Business Info' section
+        function displaySavedData(info) {
+            const savedDataDiv = document.getElementById('savedData');
+            savedDataDiv.innerHTML = `
+                <div><strong>Business Type:</strong> ${info.businessType}</div>
+                <div><strong>Target Customers:</strong> ${info.customers}</div>
+                <div><strong>Strengths:</strong> ${info.strengths}</div>
+                <div><strong>Weaknesses:</strong> ${info.weaknesses}</div>
+                <div><strong>Opportunities:</strong> ${info.opportunities}</div>
+                <div><strong>Threats:</strong> ${info.threats}</div>
+                <div><strong>Financial Goals:</strong> ${info.financialGoals}</div>
+            `;
+        }
+
+        // Load saved data on page load
+        window.onload = function() {
+            const savedBusinessInfo = localStorage.getItem('businessInfo');
+            if (savedBusinessInfo) {
+                const businessInfo = JSON.parse(savedBusinessInfo);
+                displaySavedData(businessInfo);
+
+                // Fill form inputs with saved values
+                document.getElementById('businessType').value = businessInfo.businessType;
+                document.getElementById('customers').value = businessInfo.customers;
+                document.getElementById('strengths').value = businessInfo.strengths;
+                document.getElementById('weaknesses').value = businessInfo.weaknesses;
+                document.getElementById('opportunities').value = businessInfo.opportunities;
+                document.getElementById('threats').value = businessInfo.threats;
+                document.getElementById('financialGoals').value = businessInfo.financialGoals;
+            }
+        };
+    </script>
+</body>
+</html>
